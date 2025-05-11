@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: python-frontend-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: python-frontend
+  template:
+    metadata:
+      labels:
+        app: python-frontend
+    spec:
+      containers:
+        - name: python-frontend
+          image: kundanpal/docker_training:app_v2
+          ports:
+            - containerPort: 8501
